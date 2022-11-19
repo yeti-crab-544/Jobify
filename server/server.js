@@ -4,16 +4,21 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const path = require('path');
 const apiRouter = require('./routes/api');
-// const apiRouter = express.Router();
+// const bodyParser = require('body-parser');
 
-app.use('/', apiRouter);
+// app.use(express.bodyParser());
+
+// const apiRouter = express.Router();
+console.log('in the server');
+
 // app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-
 app.use(express.static(__dirname + '../build'));
 
+
+
+app.use('/', apiRouter);
 // connect to mongoose
 mongoose
   .connect('mongodb+srv://jj289:Codesmith123@cluster3.sjwcpl4.mongodb.net/scratchDB', {

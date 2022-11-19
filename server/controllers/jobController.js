@@ -4,25 +4,47 @@ const JobController = {
   // Create a new Job in the Database
   // Their information will be sent in the request body
   // This should send the created Job
+  // async createJob(req, res, next) {
+  //   try {
+  //     const { role, company, location, status, contact, referral, salary, note } = req.body;
+  //     // could you help me understand what exactly the req.body is?
+  //     // const newJob = await Job.create(req.body);
+  //     console.log({ role: role, company: company, location: location, status: status, contact: contact, referral: referral, salary: salary, note:note });
+  //     const newJob = new Job({ role: role, company: company, location: location, status: status, contact: contact, referral: referral, salary: salary, note:note });
+  //     console.log('line before save')
+  //     await newJob.save();
+  //     res.locals.newJob = newJob;
+  //     return next();
+  //   } catch (err) {
+  //     return next({
+  //       log: 'Express error in jobController.createJob',
+  //       status: 400,
+  //       message: {
+  //         err: 'An error occurred inside jobController.createJob',
+  //       },
+  //     });
+  //   }
+  // },
+
   async createJob(req, res, next) {
+
     try {
-      // const { role, company, location, status, contact, referral, salary, note } = req.body;
-      // could you help me understand what exactly the req.body is?
-      // const newJob = await Job.create(req.body);
-      const newJob = new Job(req.body)
-      await Job.save()
-      res.locals.newJob = newJob;
+      const { role, company, location, status, contact, referral, salary, note } = req.body;
+      console.log({ role: role, company: company, location: location, status: status, contact: contact, referral: referral, salary: salary, note:note });
+      const jobs = await Job.create({ role: role, company: company, location: location, status: status, contact: contact, referral: referral, salary: salary, note: note });
+      res.locals.newJob = jobs;
       return next();
     } catch (err) {
       return next({
-        log: 'Express error in jobController.createJob',
+        log: 'Express error in JobController.getAllJobs',
         status: 400,
         message: {
-          err: 'An error occurred inside jobController.createJob',
+          err: 'An error occured inside JobController.getAllJobs',
         },
       });
     }
   },
+
   // finds specific document based off of company name in params
   async getJob(req, res, next) {
     try {
@@ -66,7 +88,7 @@ const JobController = {
       const { newStatus } = req.body;
       const updatedJob = await Job.findOneAndUpdate(
         // find one and update - first arg is what we are looking for, second arg is updated value
-        { status: name },
+        { company: name },
         { status: newStatus },
         { new: true }
       );
@@ -92,7 +114,7 @@ const JobController = {
       if (!deletedJob) {
         return res.status(400).send('No Job found');
       }
-      res.locals.deletedJob = { deleteJob: deletedJob };
+      res.locals.deletedJob = deletedJob;
       return next();
     } catch (err) {
       return next({
