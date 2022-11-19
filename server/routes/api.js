@@ -1,35 +1,41 @@
 const express = require('express');
-const jobController = require('../controllers/jobController');
-const jobRouter = express.Router();
+const JobController = require('../controllers/JobController');
 const app = express();
+const Router = express.Router();
 
 
-app.use('/job', jobRouter);
+// app.use('/', Router);
 // Create a job in the database
 // http://localhost:3000/job
-jobRouter.post('/', jobController.createJob,
+Router.post('/job', JobController.createJob,
   (req, res) => {
-    console.log(res.locals.student);
-    return res.status(200).json(res.locals.job);
+    console.log(res.locals.newJob);
+    return res.status(200).json(res.locals.newJob);
   });
 
 // Get a job from the database
 // http://localhost:3000/job/"name"
-jobRouter.get('/:name', jobController.getJob,
+Router.get('/:name', JobController.getJob,
   (req, res) => {
-    return res.status(200).json(res.locals.job);
+    return res.status(200).json(res.locals.foundJob);
   });
 
+Router.get('/', JobController.getAllJobs,
+  (req, res) => {
+    return res.status(200).json(res.locals.jobs);
+  });
 // Change a status of job
 // http://localhost:3000/job/"name"
-jobRouter.patch('/:name', jobController.updateJob,
+Router.patch('/:name', JobController.updateJob,
   (req, res) => {
     return res.status(200).json(res.locals.updatedJob);
   });
 
 // Delete a job from the database
 // http://localhost:3000/job/"name"
-jobRouter.delete('/:name', jobController.deleteJob,
+Router.delete('/:name', JobController.deleteJob,
   (req, res) => {
     return res.status(200).json(res.locals.deletedJob);
   });
+
+  module.exports = Router;
