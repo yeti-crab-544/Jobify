@@ -6,17 +6,19 @@ const JobController = {
   // This should send the created Job
   async createJob(req, res, next) {
     try {
-      const { role, company, location, status, contact, referral, salary, note } = req.body;
+      // const { role, company, location, status, contact, referral, salary, note } = req.body;
       // could you help me understand what exactly the req.body is?
-      const newJob = await Job.create({ role, company, location, status, contact, referral, salary, note });
-      res.locals.job = newJob;
+      // const newJob = await Job.create(req.body);
+      const newJob = new Job(req.body)
+      await Job.save()
+      res.locals.newJob = newJob;
       return next();
     } catch (err) {
       return next({
-        log: 'Express error in JobController.createJob',
+        log: 'Express error in jobController.createJob',
         status: 400,
         message: {
-          err: 'An error occurred inside JobController.createJob',
+          err: 'An error occurred inside jobController.createJob',
         },
       });
     }
@@ -26,9 +28,10 @@ const JobController = {
     try {
       const { name } = req.params;
       const foundJob = await Job.findOne({ company: name });
-      if (!foundJob) {
-        return res.status(400).send('No Job found');
-      }
+      // if (!foundJob) {
+      //   console.log(req.params);
+      //   return res.status(400).send('No job found');
+      // }
       res.locals.foundJob = foundJob;
       return next();
     } catch (err) {
@@ -37,6 +40,21 @@ const JobController = {
         status: 400,
         message: {
           err: 'An error occured inside JobController.getJob',
+        },
+      });
+    }
+  },
+  async getAllJobs(req, res, next) {
+    try {
+      const jobs = await Job.find({}).exec();
+      res.locals.jobs = jobs;
+      return next();
+    } catch (err) {
+      return next({
+        log: 'Express error in JobController.getAllJobs',
+        status: 400,
+        message: {
+          err: 'An error occured inside JobController.getAllJobs',
         },
       });
     }
