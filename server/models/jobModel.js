@@ -9,7 +9,7 @@ const jobSchema = new Schema({
   location: {type: String, required: true},
   status: {type: String, required: true},
   contact: {type: String},
-  referal: {type: String},
+  referral: {type: String},
   salary: {type: String},
   note: {type: String},
 });
