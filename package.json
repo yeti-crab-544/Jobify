@@ -21,6 +21,7 @@
   "license": "ISC",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.0",
+    "body-parser": "^1.20.1",
     "browserify": "^17.0.0",
     "cors": "^2.8.5",
     "express": "^4.12.3",
