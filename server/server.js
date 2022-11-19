@@ -4,8 +4,11 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const path = require('path');
 const apiRouter = require('./routes/api');
+// const apiRouter = express.Router();
 
-app.use(cors());
+app.use('/', apiRouter);
+// app.use(cors());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
@@ -24,9 +27,9 @@ mongoose
   });
 
 
-app.get('/*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../build/index.html'))
-});
+// app.get('/*', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, '../build/index.html'))
+// });
 
 // app.use('/', require('./routes/api.js'));
 
