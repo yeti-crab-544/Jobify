@@ -16,8 +16,6 @@ const RejectedColumn = () => {
       .catch(err => console.log('Jobs.useEffect: get jobs: ERROR: ', err));
   }, [])
 
-console.log(Array.isArray(state)); 
-
 const elems = state.map((job, i) => {
   if (job.status === 'rejected')
   return (

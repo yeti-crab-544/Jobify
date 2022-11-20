@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import AllApplications from './components/AllApplications';
+import AddApplication from './components/AddApplication';
 
 import './styles.scss';
 
@@ -16,11 +17,11 @@ const App = () => {
             path='/'
             component={AllApplications}
             />
-            {/* <Route
+            <Route
               exact
-              path='/addPlant'
+              path='/addApplication'
               component={AddApplication}
-              />         */}
+              />        
             </Switch>
       </main>
     </div>
