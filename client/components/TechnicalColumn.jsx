@@ -16,7 +16,6 @@ const TechnicalColumn = () => {
       .catch(err => console.log('Jobs.useEffect: get jobs: ERROR: ', err));
   }, [])
 
-console.log(Array.isArray(state)); 
 
 const elems = state.map((job, i) => {
   if (job.status === 'technical')
@@ -31,7 +30,7 @@ const elems = state.map((job, i) => {
   
     return (
       <div className="column">
-        <h1>Technical</h1>
+        <h1>Technical Interview Completed</h1>
         {elems}
       </div>
     )

@@ -1,3 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
 body {
-    color: purple;
+    background-color: #1B2430;
+    color: whitesmoke;
+    font-family: 'Josefin Sans', cursive;
+    padding: 20px;
+}
+
+// ALL APPLICATIONS SEECTION
+.mainSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        font-size: 40px;
+    }
+    button {
+        height: 50px;
+        width: 150px;
+        font-size: 20px;
+        border-radius: 6px;
+        background-color: #816797;
+        color: whitesmoke;
+        border: 1px solid black;
+        margin-bottom: 30px;
+    }
+    button:hover {
+        cursor: pointer;
+    }
+
+    .columnContainer {
+        display: flex;
+        gap: 20px;
+    }
+}
+
+//EACH COLUMN SECTION
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    h1 {
+        font-size: 25px;
+    }
+}
+
+//EACH JOB CARD
+.job {
+    border: 1px solid black;
+    background-color: #51557E;
+    padding: 10px;
+
+    ul {
+       list-style-type: none; 
+       display: flex;
+       flex-direction: column;
+       padding-left: 5px;
+
+       li {
+        margin-bottom: 12px;
+       }
+    }
+    .larger {
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
+
+
+//ADD APPLICATION SECTION
+.pageHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2 {
+        font-size: 45px;
+    }
+    button {
+        height: 40px;
+        width: 200px;
+        font-size: 16px;
+    }
+}
+
+.jobCard {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    h3 {
+        text-align: center;
+        font-size: 30px;
+    }
+    label {
+        margin-right: 30px;
+        font-size: 20px;
+    }
+    input {
+        height: 20px;
+        width: 300px;
+        padding: 5px;
+    }
+}
+
+.createJobButtonContainer {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+
+    button {
+        height: 40px;
+        width: 140px;
+        font-size: 16px;
+    }
 }
