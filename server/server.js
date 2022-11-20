@@ -18,7 +18,7 @@ app.use(express.static(__dirname + '../build'));
 
 
 
-app.use('/', apiRouter);
+app.use('/api', apiRouter);
 // connect to mongoose
 mongoose
   .connect('mongodb+srv://jj289:Codesmith123@cluster3.sjwcpl4.mongodb.net/scratchDB', {

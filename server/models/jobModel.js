@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 // sets schema for 'user' collection
 const jobSchema = new Schema({
-  role: {type: String, required: true, unique: true},
+  role: {type: String, required: true},
   company: {type: String, required: true},
   location: {type: String, required: true},
   status: {type: String, required: true},
