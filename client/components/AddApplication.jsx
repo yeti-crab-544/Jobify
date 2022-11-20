@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 
 const AddApplication = () => {
-  
+  //add functions here
 }
 
 export default AddApplication;

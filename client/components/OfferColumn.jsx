@@ -1,10 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from 'react-redux';
+import Job from "./Job";
 
 
 const OfferColumn = () => {
+
+  const [state, setState] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:8080/api')
+      .then(jobs => jobs.json())
+      .then((parsedJobs) => {
+        setState(parsedJobs);
+      })
+      .catch(err => console.log('Jobs.useEffect: get jobs: ERROR: ', err));
+  }, [])
+
+console.log(Array.isArray(state)); 
+
+const elems = state.map((job, i) => {
+  if (job.status === 'offer')
+  return (
+    <Job
+      key={i}
+      info={job}
+    />
+  );
+});
+  
     return (
-      <h1>Offer</h1>
+      <div className="column">
+        <h1>Offer Received</h1>
+        {elems}
+      </div>
     )
 }
 
