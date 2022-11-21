@@ -4,19 +4,37 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const path = require('path');
 const apiRouter = require('./routes/api');
+// const bodyParser = require('body-parser');
 
-app.use(cors());
+// app.use(express.bodyParser());
+
+// const apiRouter = express.Router();
+console.log('in the server');
+
+// app.use(cors());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-
 app.use(express.static(__dirname + '../build'));
 
-// connect to mongoose
-// mongoose.connect('mongodb+srv://jj289:Codesmith123@cluster2.dutgbc6.mongodb.net/dgmuDB');
 
-app.get('/*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../build/index.html'))
-});
+
+app.use('/api', apiRouter);
+// connect to mongoose
+mongoose
+  .connect('mongodb+srv://jj289:Codesmith123@cluster3.sjwcpl4.mongodb.net/scratchDB', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  })
+  .then(con => {
+    console.log('connected to db')
+  });
+
+
+// app.get('/*', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, '../build/index.html'))
+// });
 
 // app.use('/', require('./routes/api.js'));
 
