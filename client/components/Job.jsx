@@ -54,14 +54,13 @@ const Job = ({ info }) => {
           <li className="larger">{role}</li>
           <li className="larger">{company}</li>
           <li>Location: {location}</li>
-          <li>Status: {status}</li>
+          {/* <li>Status: {status}</li> */}
           <li>Contact: {contact}</li>
           <li>Referral: {referral}</li>
           <li>Salary: {salary}</li>
           <li>Notes: {note}</li>
         </ul>
         <h3>Change application status:</h3>
-        {/* <Select id={company} options={options} onChange={changeStatus} value={options.value} /> */}
         <select id={company} className="dropdown" onChange={changeStatus}>
           <option value="none">Select New Status</option>
           <option value="applied">Applied</option>

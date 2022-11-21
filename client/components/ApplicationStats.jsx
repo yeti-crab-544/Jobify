@@ -46,9 +46,11 @@ const ApplicationStats = () => {
           Back to all applications
         </button>
       </Link>
-      <Pie data={data} />
+      <Pie data={data} height="800px" width="800px" options={{responsive: false}} />
     </div>
   );
 }
+
+
 
 export default ApplicationStats;
