@@ -68,7 +68,6 @@ return (
       <div className="createJobFields">
         <label htmlFor="role">Role: </label>
         <input name="role" value={role} onChange={roleOnChange} />
-        {/* {nameError ? (<span className="errorMsg">{nameError}</span>) : null} */}
       </div>
       <div className="createJobFields">
         <label htmlFor="company">Company: </label>

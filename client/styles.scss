@@ -13,6 +13,10 @@ body {
     flex-direction: column;
     align-items: center;
 
+    .allAppButtons {
+        display: flex;
+        gap: 30px;
+    }
     h1 {
         font-size: 40px;
     }
@@ -49,7 +53,7 @@ body {
 
 //EACH JOB CARD
 .job {
-    border: 1px solid black;
+    border: 1px solid white;
     background-color: #51557E;
     padding: 10px;
 
