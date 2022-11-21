@@ -7,7 +7,7 @@ body {
     padding: 20px;
 }
 
-// ALL APPLICATIONS SEECTION
+// ALL APPLICATIONS SELECTION
 .mainSection {
     display: flex;
     flex-direction: column;
@@ -38,17 +38,24 @@ body {
         display: flex;
         gap: 20px;
     }
+
+    .headers {
+        display: flex;
+        
+    }
 }
 
 //EACH COLUMN SECTION
 .column {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     gap: 20px;
     h1 {
         font-size: 25px;
     }
+    
 }
 
 //EACH JOB CARD
@@ -56,6 +63,7 @@ body {
     border: 1px solid white;
     background-color: #51557E;
     padding: 10px;
+    
 
     ul {
        list-style-type: none; 
@@ -71,6 +79,19 @@ body {
         font-size: 20px;
         font-weight: bold;
     }
+
+    .dropdown {
+        font-family: 'Josefin Sans', cursive;
+        font-weight: bold;
+        font-size: 15px;
+        padding: 5px;
+        height: 35px;
+        background-color: whitesmoke;
+    }
+}
+
+.job:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
 
@@ -118,5 +139,32 @@ body {
         height: 40px;
         width: 140px;
         font-size: 16px;
+    }
+}
+
+
+//appStats
+.appStats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    // h1 {
+    //     45px;
+    // }
+
+    button {
+        height: 30px;
+        width: 200px;
+        font-size: 15px;
+        border-radius: 6px;
+        background-color: #816797;
+        color: whitesmoke;
+        border: 1px solid black;
+        margin-bottom: 30px;
+    }
+    button:hover {
+        cursor: pointer;
     }
 }

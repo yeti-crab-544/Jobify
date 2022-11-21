@@ -84,12 +84,13 @@ const JobController = {
   // updates status of job 
   async updateJob(req, res, next) {
     try {
+      console.log('job controller  ' + req.body)
       const { name } = req.params;
-      const { newStatus } = req.body;
+      const { value } = req.body;
       const updatedJob = await Job.findOneAndUpdate(
         // find one and update - first arg is what we are looking for, second arg is updated value
         { company: name },
-        { status: newStatus },
+        { status: value },
         { new: true }
       );
       if (!updatedJob) {
