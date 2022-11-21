@@ -4,7 +4,7 @@ body {
     background-color: #1B2430;
     color: whitesmoke;
     font-family: 'Josefin Sans', cursive;
-    padding: 20px;
+    padding: 40px;
 }
 
 // ALL APPLICATIONS SELECTION
@@ -12,6 +12,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+  
 
     .allAppButtons {
         display: flex;
@@ -39,10 +40,11 @@ body {
         gap: 20px;
     }
 
-    .headers {
-        display: flex;
-        
-    }
+    // .headers {
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    // }
 }
 
 //EACH COLUMN SECTION
@@ -114,6 +116,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 500px;
+    flex-wrap: wrap;
 
     h3 {
         text-align: center;
