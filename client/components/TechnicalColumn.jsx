@@ -17,23 +17,25 @@ const TechnicalColumn = () => {
   }, [])
 
 
-const elems = state.map((job, i) => {
-  if (job.status === 'technical')
+  const elems = state.map((job, i) => {
+    if (job.status === 'technical')
+      return (
+        <Job
+          key={i}
+          info={job}
+        />
+      );
+  });
+
+
   return (
-    <Job
-      key={i}
-      info={job}
-    />
-  );
-});
-  
-  
-    return (
-      <div className="column">
+    <div className="column">
+      <div className="columnHeader">
         <h1>Technical Interview Completed</h1>
-        {elems}
       </div>
-    )
+      {elems}
+    </div>
+  )
 }
 
 export default TechnicalColumn;

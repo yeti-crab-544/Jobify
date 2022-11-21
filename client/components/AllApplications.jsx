@@ -28,6 +28,14 @@ const AllApplications = () => {
             className="linkButton">Application Stats</button>
         </Link>
       </div>
+      {/* <div className="headers">
+        <h1>Application Submitted</h1>
+        <h1>Phone Interview Completed</h1>
+        <h1>Technical Interview Completed</h1>
+        <h1>Final Interview Completed</h1>
+        <h1>Offer Received</h1>
+        <h1>Application Rejected</h1>
+      </div> */}
       <div className="columnContainer">
         <AppliedColumn />
         <PhoneColumn />

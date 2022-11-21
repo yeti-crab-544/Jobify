@@ -33,6 +33,7 @@ const elems = state.map((job, i) => {
     return (
       <div className="column">
         <h1>Application Submitted</h1>
+        <br/>
         {elems}
       </div>
     )

@@ -16,23 +16,26 @@ const RejectedColumn = () => {
       .catch(err => console.log('Jobs.useEffect: get jobs: ERROR: ', err));
   }, [])
 
-const elems = state.map((job, i) => {
-  if (job.status === 'rejected')
+  const elems = state.map((job, i) => {
+    if (job.status === 'rejected')
+      return (
+        <Job
+          key={i}
+          info={job}
+        />
+      );
+  });
+
+
   return (
-    <Job
-      key={i}
-      info={job}
-    />
-  );
-});
-  
-  
-    return (
-      <div className="column">
+    <div className="column">
+      <div className="columnHeader">
         <h1>Application Rejected</h1>
-        {elems}
       </div>
-    )
+    <br />
+      {elems}
+    </div>
+  )
 }
 
 export default RejectedColumn;

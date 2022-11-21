@@ -17,22 +17,25 @@ const OfferColumn = () => {
   }, [])
 
 
-const elems = state.map((job, i) => {
-  if (job.status === 'offer')
+  const elems = state.map((job, i) => {
+    if (job.status === 'offer')
+      return (
+        <Job
+          key={i}
+          info={job}
+        />
+      );
+  });
+
   return (
-    <Job
-      key={i}
-      info={job}
-    />
-  );
-});
-  
-    return (
-      <div className="column">
+    <div className="column">
+      <div className="columnHeader">
         <h1>Offer Received</h1>
-        {elems}
       </div>
-    )
+      <br />
+      {elems}
+    </div>
+  )
 }
 
 export default OfferColumn;
