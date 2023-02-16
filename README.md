@@ -5,3 +5,4 @@ Built with:
 * React
 * Node/Express
 * MongoDB
+* Redux
